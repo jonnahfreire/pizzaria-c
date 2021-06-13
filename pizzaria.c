@@ -59,14 +59,16 @@ int main() {
     scanf("%c", &pizzaPedido);
 
     if(pizzaPedido == 's' || pizzaPedido == 'S'){
+        int condition;
         do {
             printf("Digite o numero do sabor desejado: ");
             scanf("%d", &pizzaIdSabor);
-
             sep('-', 0);
-            if(pizzaIdSabor > 5)
+
+            condition = (pizzaIdSabor > 5) || (pizzaIdSabor < 1);
+            if(condition)
                 printf("\nNumero invalido! Escolha um numero valido.\n");
-        }while(pizzaIdSabor > 5);
+        }while(condition);
 
         int err=0;
         do {
@@ -92,14 +94,16 @@ int main() {
     scanf("%c", &bebidaPedido);
 
     if(bebidaPedido == 's' || bebidaPedido == 'S'){
+        int condition;
         do {
             printf("Digite o numero da bebida desejada: ");
             scanf("%d", &bebidaIdSabor);
             sep('-', 0);
 
-            if(bebidaIdSabor > 5)
+            condition = (bebidaIdSabor > 5) || (bebidaIdSabor < 1);
+            if(condition)
                 printf("\nNumero invalido! Escolha um numero valido.\n");
-        }while(bebidaIdSabor > 5);
+        }while(condition);
     }
 
     if(pizzaPedido == 's' || pizzaPedido == 'S'){

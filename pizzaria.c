@@ -29,8 +29,8 @@ int main() {
 
     char* sigTam[5] = {"P", "M", "G", "GG"};
     char* sabores[5] = {
-        "Mussarela", "Calabresa",
-        "Marguerita", "Portuguesa", "Mista"
+        "MUSSARELA", "CALABRESA",
+        "MARGUERITA", "PORTUGUESA", "MISTA"
     };
 
     char* precos[5][4] = {
@@ -43,11 +43,11 @@ int main() {
     };
 
     char* bebidas[5][2] = {
-        {"Cajuina 1L", "6.00"},
-        {"Fanta Laranja 350ML", "4.00"},
-        {"Guarana 1L", "6.00"},
-        {"Pepsi 1L", "6.00"},
-        {"Coca Cola 2L", "10.00"}
+        {"CAJUINA 1L", "6.00"},
+        {"FANTA LARANJA 350ML", "4.00"},
+        {"GUARANA 1L", "6.00"},
+        {"PEPSI 1L", "6.00"},
+        {"COCA COLA 2L", "10.00"}
     };
 
     clear();
@@ -177,35 +177,37 @@ void menu(char* sabores[5], char* precos[5][4], char* bebidas[5][2]){
     printf("\n\t\tBEM-VINDOS AO IMPERIO DOS SABORES\n");
 
     sep('=', 0);
-    printf("\n    Sabor\t\tP\t   M\t     G\t      GG\n");
+    printf("\n   Sabores\t\tP\t   M\t     G\t      GG\n");
     sep('-', 1);
 
 	for(i = 0; i < 5; i++){
-        printf("%d - %s ", i+1, sabores[i]); // Nomes das pizzas
+        printf(" %d. %s ", i+1, sabores[i]); // Nomes das pizzas
 
         for(c = 0; c < pLineLength - strlen(sabores[i]); c++){
             printf(".");
         }
 
         for(e = 0; e < 4; e++){ // Preços das pizzas
-            if(e != 3 && e == 0) printf(" R$%s - ", precos[i][e]);
-            else if(e != 3 && e > 0) printf("R$%s - ", precos[i][e]);
+            if(e != 3 && e == 0) printf(" R$%s | ", precos[i][e]);
+            else if(e != 3 && e > 0) printf("R$%s | ", precos[i][e]);
             else printf("R$%s", precos[i][e]);
         }
         printf("\n");
 	}
 
     sep('-', 1);
-
-	for(i = 0; i < 5; i++){ // bebidas
-        printf("%d - %s ", i+1, bebidas[i][0]);
+    printf(" * BEBIDAS\n");
+    sep('-', 1);
+    // bebidas
+    for(i = 0; i < 5; i++){
+        printf(" %d. %s ", i+1, bebidas[i][0]);
 
         for(c = 0; c < bLineLEngth - strlen(bebidas[i][0]); c++){
             printf(".");
         }
         printf(" R$%s", bebidas[i][1]);
         printf("\n");
-	}
+    }
 }
 
 
@@ -225,4 +227,3 @@ void sep(int chr, int l) {
     for(i = 0; i<59; i++)printf("%c", chr);
     if (l != 0) printf("\n");
 }
-
